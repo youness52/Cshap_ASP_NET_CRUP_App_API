@@ -12,11 +12,17 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+});
+
 builder.Services.AddEntityFrameworkMySQL()
     .AddDbContext<DotnetdbContext>(options =>
     {
         options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection"));
     });
+
 
 
 var app = builder.Build();
