@@ -18,6 +18,7 @@ public partial class DotnetdbContext : DbContext
 
     public virtual DbSet<User> User { get; set; }
     public virtual DbSet<Product> Product { get; set; }
+    public virtual DbSet<Order> Order { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     { }
 

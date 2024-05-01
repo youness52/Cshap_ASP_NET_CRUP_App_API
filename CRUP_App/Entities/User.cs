@@ -20,5 +20,9 @@ namespace CRUP_App.Entities
         public string Password { get; set; } = null!;
 
         public DateTime EnrollmentDate { get; set; }
+
+        // Navigation property representing the collection of orders associated with the user
+        public ICollection<Order> Orders { get; set; }
+
     }
 }

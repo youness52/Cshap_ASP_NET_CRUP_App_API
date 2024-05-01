@@ -15,5 +15,8 @@ namespace CRUP_App.Entities
         public decimal price { get; set; } = 0;
 
         public string category { get; set; } = null!;
+
+        // Navigation property representing the collection of orders associated with the product
+        public ICollection<Order> Orders { get; set; }
     }
 }

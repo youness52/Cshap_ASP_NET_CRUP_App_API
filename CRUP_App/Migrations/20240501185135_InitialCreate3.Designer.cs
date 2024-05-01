@@ -3,6 +3,7 @@ using System;
 using CRUP_App.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CRUP_App.Migrations
 {
     [DbContext(typeof(DotnetdbContext))]
-    partial class DotnetdbContextModelSnapshot : ModelSnapshot
+    [Migration("20240501185135_InitialCreate3")]
+    partial class InitialCreate3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
