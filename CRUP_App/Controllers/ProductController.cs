@@ -33,6 +33,20 @@ namespace CRUP_App.Controllers
                 return productList;
             }
         }
+        [HttpGet("search")]
+        public async Task<ActionResult<List<Product>>> SearchByName([FromQuery] String name)
+        {
+            var productList = await _dotnetdbContext.Product.Where(p => p.name.Contains(name)).ToListAsync();
+
+            if (productList == null || productList.Count == 0)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return productList;
+            }
+        }
 
         [HttpPost]
         public async Task<ActionResult> InsertProduct(Product product)
