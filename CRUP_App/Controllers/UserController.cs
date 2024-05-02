@@ -4,6 +4,8 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace CRUP_App.Controllers
@@ -37,10 +39,27 @@ namespace CRUP_App.Controllers
         [HttpPost]
         public async Task<ActionResult> InsertUser(User user)
         {
+            string hashedPassword = CalculateMD5Hash(user.Password);
+            user.Password= hashedPassword;
             _dotnetdbContext.User.Add(user);
             await _dotnetdbContext.SaveChangesAsync();
 
             return CreatedAtAction(nameof(GetUserById), new { id = user.Id }, user);
+        }
+        private string CalculateMD5Hash(string input)
+        {
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+                byte[] hashBytes = md5.ComputeHash(inputBytes);
+
+                StringBuilder sb = new StringBuilder();
+                foreach (byte b in hashBytes)
+                {
+                    sb.Append(b.ToString("x2"));
+                }
+                return sb.ToString();
+            }
         }
 
         [HttpGet("{id}")]

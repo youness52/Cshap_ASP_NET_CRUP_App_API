@@ -1,10 +1,12 @@
 ﻿using CRUP_App.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace CRUP_App.Controllers
 {
+    [Authorize]
     [Route("api/products")]
     [ApiController]
     public class ProductController : ControllerBase
