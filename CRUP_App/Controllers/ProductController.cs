@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CRUP_App.Controllers
 {
-   // [Authorize]
+    // [Authorize] // Requires authentication
     [Route("api/products")]
     [ApiController]
     public class ProductController : ControllerBase

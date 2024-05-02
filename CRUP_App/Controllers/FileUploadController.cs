@@ -1,8 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CRUP_App.Controllers
 {
+    [Authorize] // Requires authentication
     [Route("api/savefile")]
     [ApiController]
     public class FileUploadController : ControllerBase
