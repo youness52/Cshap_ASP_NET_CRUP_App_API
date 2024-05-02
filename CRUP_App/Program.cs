@@ -52,7 +52,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+// Configure File upload
 var photosDirectory = Path.Combine(Directory.GetCurrentDirectory(), "Photos");
 
 if (!Directory.Exists(photosDirectory))
