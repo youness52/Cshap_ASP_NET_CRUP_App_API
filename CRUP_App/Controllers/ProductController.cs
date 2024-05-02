@@ -12,9 +12,11 @@ namespace CRUP_App.Controllers
     public class ProductController : ControllerBase
     {
         private readonly DotnetdbContext _dotnetdbContext;
+       
         public ProductController(DotnetdbContext dotnetdbContext)
         {
             _dotnetdbContext = dotnetdbContext;
+           
         }
 
         [HttpGet]
@@ -104,5 +106,8 @@ namespace CRUP_App.Controllers
         {
             return _dotnetdbContext.Product.Any(e => e.Id == id);
         }
+
+        
+
     }
 }
