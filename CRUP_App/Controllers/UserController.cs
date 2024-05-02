@@ -1,4 +1,5 @@
 ﻿using CRUP_App.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace CRUP_App.Controllers
         }
 
         [HttpGet]
+        [Authorize] // Requires authentication
         public async Task<ActionResult<List<User>>> Get()
         {
             var userList = await _dotnetdbContext.User.ToListAsync();
@@ -63,6 +65,7 @@ namespace CRUP_App.Controllers
         }
 
         [HttpGet("{id}")]
+        [Authorize] // Requires authentication
         public async Task<ActionResult<User>> GetUserById(int id)
         {
             var user = await _dotnetdbContext.User.FirstOrDefaultAsync(s => s.Id == id);
@@ -78,6 +81,7 @@ namespace CRUP_App.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize] // Requires authentication
         public async Task<ActionResult> UpdateUser(int id, User user)
         {
             if (id != user.Id)
@@ -107,6 +111,7 @@ namespace CRUP_App.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize] // Requires authentication
         public async Task<ActionResult> DeleteUser(int id)
         {
             var user = await _dotnetdbContext.User.FindAsync(id);
