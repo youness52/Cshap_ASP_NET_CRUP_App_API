@@ -17,9 +17,9 @@ namespace CRUP_App.Entities
             public int ProductId { get; set; } // Foreign key referencing the Product table
 
         // Navigation properties for relating orders to users and products
-            public User User { get; set; } 
+            public User? User { get; set; } 
 
-            public Product Product { get; set; }
+            public Product? Product { get; set; }
         }
     
 }
