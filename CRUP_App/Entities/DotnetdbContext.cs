@@ -14,6 +14,7 @@ public partial class DotnetdbContext : DbContext
         : base(options)
     {
     }
+ 
 
 
     public virtual DbSet<User> User { get; set; }

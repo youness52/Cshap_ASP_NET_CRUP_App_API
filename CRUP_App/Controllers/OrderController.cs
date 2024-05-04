@@ -25,6 +25,8 @@ namespace CRUP_App.Controllers
                 .Include(o => o.Product) // Include the Product navigation property
                 .ToListAsync();
 
+          //  orderList.ForEach(o => o.User.Password = null);
+
             if (orderList == null || orderList.Count == 0)
             {
                 return NotFound();
@@ -52,6 +54,8 @@ namespace CRUP_App.Controllers
                 .Include(o => o.User)    // Include the User navigation property
                 .Include(o => o.Product) // Include the Product navigation property
                 .FirstOrDefaultAsync(s => s.OrderId == id);
+           
+          //  order.User.Password = null;
 
             if (order == null)
             {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace CRUP_App.Entities
 {
@@ -17,6 +18,7 @@ namespace CRUP_App.Entities
 
         public string Username { get; set; } = null!;
 
+    
         public string Password { get; set; } = null!;
 
         public DateTime EnrollmentDate { get; set; }

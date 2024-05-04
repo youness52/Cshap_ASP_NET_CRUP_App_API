@@ -1,4 +1,5 @@
-﻿using CRUP_App.Entities;
+﻿
+using CRUP_App.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -26,7 +27,9 @@ namespace CRUP_App.Controllers
         [Authorize] // Requires authentication
         public async Task<ActionResult<List<User>>> Get()
         {
-            var userList = await _dotnetdbContext.User.ToListAsync();
+             var userList = await _dotnetdbContext.User.ToListAsync();
+            
+             //userList.ForEach(o => o.Password = null);
 
             if (userList == null || userList.Count == 0)
             {
@@ -69,6 +72,8 @@ namespace CRUP_App.Controllers
         public async Task<ActionResult<User>> GetUserById(int id)
         {
             var user = await _dotnetdbContext.User.FirstOrDefaultAsync(s => s.Id == id);
+
+            //user.Password = null;
 
             if (user == null)
             {

@@ -10,11 +10,11 @@ namespace CRUP_App.Entities
         public int Id { get; set; }
         public string name { get; set; } = null!;
 
-        public string description { get; set; } = null!;
+        public string description { get; set; }
 
         public decimal price { get; set; } = 0;
 
-        public string category { get; set; } = null!;
+        public string category { get; set; } 
 
         // Navigation property representing the collection of orders associated with the product
         public ICollection<Order>? Orders { get; set; }
